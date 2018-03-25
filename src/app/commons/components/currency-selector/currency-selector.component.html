@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="offset-md-3 col-md-6 offset-lg-3 col-lg-6">
+		<div class="container">
+			<div class="row justify-content-md-center">
+				<div class="pricing-table pricing-table-style-lighter pricing-table-preferred-variant-1 col-md-4"
+				 *ngFor="let wallet of wallets; let i = index"
+				 [routerLink]="['/client/user/wallet/'+wallet.id+'/ubblet-transfer']">
+					<!-- pricing-table-header -->
+					<div class="pricing-table-header blue-dark-new">
+						<h4 class="pricing-table-heading text-center pad-20 weight-500">
+							<!--<img src="../../assets/img/{{wallet.currency.image}}" class="rounded imagen-list-xs" />-->
+							{{wallet.currency.name}}
+						</h4>
+					</div>
+					<!--/ pricing-table-header -->
+
+					<!-- pricing-table-body -->
+					<div class="pricing-table-body text-center">
+						<p class="mrg-30 mrg-bottom-15 grey-fnt">
+							Monto disponible
+						</p>
+						<p class="mrg-30 mrg-top-0 grey-fnt amount">
+							<span class="amount">{{wallet.amount}}</span>
+						</p>
+					</div>
+					<!--/ pricing-table-body -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<router-outlet></router-outlet>

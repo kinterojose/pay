@@ -1,0 +1,32 @@
+
+                            <div class="card">
+                              <form  [formGroup]="form">
+                                <div class="card-block wow fadeInRight" data-wow-delay="0.4s">
+                                    <!--Body-->
+                                    <div class="md-form form-sm">
+                                        <i class="fa fa-envelope prefix"></i>
+                                        <input type="text" id="email" class="form-control" type="text" class="validate"
+                                          [(ngModel)]="user.email" formControlName="email">
+                                        <label for="email" [class.active]="user.email">Correo Electrónico</label>
+                                    </div>
+
+                                    <div class="md-form form-sm">
+                                        <i class="fa fa-key prefix"></i>
+                                        <input type="text" id="password" class="form-control" type="text" 
+                                          [(ngModel)]="user.password" formControlName="password">
+                                        <label for="password" [class.active]="user.password">Contraseña</label>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <button class="btn btn-blue-d btn-block" (click)="signIn()">Iniciar sesión</button>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <fieldset class="form-group">
+                                            <a href="#" class="text-muted">Problemas para acceder a su cuenta ?</a>
+                                        </fieldset>
+                                    </div>
+
+                                </div>
+                              </form>
+                            </div>

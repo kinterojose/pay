@@ -1,0 +1,61 @@
+<form id="transfer-form" class="big-form">
+  <div class="row">
+    <div class="offset-md-4 col-md-4">
+        <!--Form without header-->
+        <div class="card z-depth-2">
+            <div class="card-block">
+                <!--Header-->
+<!--
+                <div class="text-center justify-content-center">
+                    <img src="../../assets/img/default/default-profile.png" class="rounded mx-auto d-block profile-image grey-text" alt="Profile Image">
+                </div>
+-->
+                <div class="md-form">
+                    <input type="text" id="email" class="form-control" placeholder="pedro_ssanchezgmail.com">
+                    <label for="email" class="active">Correo Electronico</label>
+                </div>
+                <!--Body-->
+                <div class="row">
+                    <div class="offset-md-3 col-md-6">
+                        <div class="md-form">
+                            <i id="icon-currency" class="fa fa-dollar fa-3x prefix grey-text"></i>
+                            <input placeholder="00,00" type="text" id="amount" class="form-control" type="number" class="validate">
+                        </div>
+                    </div>
+                </div>
+                <div class="md-form">
+                    <textarea type="text" id="description" class="md-textarea" ></textarea>
+                    <label for="description">DESCRIPCIÓN</label>
+                </div>
+                <div class="md-form">
+                  <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                    <input type="checkbox" class="custom-control-input" #visible (change)="0">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description">¿quieres que esta transferencia se haga a otra hora?</span>
+                  </label>
+                </div>
+
+                <div id="wrapper-date" *ngIf="visible.checked">
+                    <br>
+                    <div class="md-form">
+                        <input class="form-control" type="date" id="date" value="2011-08-19" id="example-date-input">
+                    </div>
+                </div>
+                <br><br>
+                <div class="text-center">
+                    <button class="btn btn-blue-d waves-effect btn-lg" type="submit">Continuar</button>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-outline-info outline-1-info waves-effect btn-lg" type="submit" >Cancelar</button>
+                    <p class="grey-text"><strong>Para obtener más informacion, consulte nuestras <a href="#" class="blue-grey-text">Condiciones de Uso</a> </strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</form>
+<br>
+
+
+
+

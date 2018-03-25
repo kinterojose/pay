@@ -1,0 +1,76 @@
+<div class="row">
+    <div class="offset-md-3 col-md-6 offset-lg-3 col-lg-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pricing-table pricing-table-style-lighter pricing-table-preferred-variant-1">
+                        <!-- pricing-table-header -->
+                        <div class="pricing-table-header blue-dark-new">
+                            <h5 class="pricing-table-heading pad-20 weight-500">
+                                Comprobante
+                            </h5>
+                        </div>
+                        <!--/ pricing-table-header -->
+
+                        <!-- pricing-table-body -->
+                        <div class="pricing-table-body">
+
+                            <div class="card-block">
+                                <div class="row">
+                                    <div class="col-md-12 to-right  text-muted weight-500">
+                                        <p id="code" class="field">{{ubbletTransfer.code}}</p>
+                                    </div>
+                                </div>
+                                <div class="mrg-20">
+                                    <label class="field text-muted weight-500" for="target_user">Usuario a transferir</label>
+                                    <p id="target_user" class="value">
+                                        {{ubbletTransfer.target_user}}
+                                    </p>
+                                </div>
+                                <div class="mrg-20">
+                                    <label class="field text-muted weight-500" for="description">Descripción</label>
+                                    <p id="description" class="value">{{ubbletTransfer.description}}
+                                    </p>
+                                </div>
+                                <hr class="grey-fnt">
+                                <div class="voucher">
+                                    <div class="row">
+                                        <div class="col-md-10 to-right box">
+                                            <p class="field text-muted weight-500">Amount</p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p class="value">{{ubbletTransfer.amount}} </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-10 to-right box">
+                                            <p class="field text-muted weight-500">Fee</p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p class="value">{{ubbletTransfer.fee}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-10 to-right box">
+                                            <p class="field text-muted weight-500">Total</p>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p class="value">{{ubbletTransfer.amount + ubbletTransfer.fee}} </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row justify-content-md-center">
+                                    <button [routerLink]="['/panel/']" class="btn btn-unique btn-primary mrg-right-5 waves-effect btn-md" type="button">Ir a inicio</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/ pricing-table-body -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
+<br>

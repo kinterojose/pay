@@ -1,0 +1,126 @@
+<div class="row" *ngIf="transfer?.type == 'i'">
+	<div class="offset-md-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="text-center">
+                    <h3>Información para transferir (cuenta internacional)</h3>
+                    <hr class="mt-2 mb-2">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Monto total a pagar</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><small> {{ amount }}</small></p>
+                    </div>
+                </div>
+                <hr class="mt-2 mb-2">
+                <div class="text-center">
+                    <h4>Información del beneficiario</h4>
+                    <hr class="mt-2 mb-2">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Nombre del beneficiario</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><small> {{ transfer?.account.beneficiaryName }}</small></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Dirección del beneficiario</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><small> {{ transfer?.account.beneficiaryAddress }}</small></p>
+                    </div>
+                </div>
+                <div class="text-center">
+                	<hr class="mt-2 mb-2">
+                    <h4>Información del banco</h4>
+                    <hr class="mt-2 mb-2">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Banco</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><small> {{ transfer?.account.bankName }}</small></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Dirección del banco</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><small> {{ transfer?.account.address }}</small></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Swift/BIC</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><small> {{ transfer?.account.bic }}</small></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Número de cuenta</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><small> {{ transfer?.account.number }}</small></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Referencia</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><small> {{ transfer?.account.reference }}</small></p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-blue-d waves-effect" routerLink="/panel">Ir a inicio</button>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" *ngIf="transfer?.type == 'l'">
+	<div class="offset-md-3 col-md-6">
+		<div class="card">
+			<div class="card-block">
+				<div class="text-center">
+                    <h3>Información para transferir (cuenta local)</h3>
+                    <hr class="mt-2 mb-2">
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Monto total a pagar</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><small> {{ amount }}</small></p>
+                    </div>
+                </div>
+                <hr class="mt-2 mb-2">
+                <div class="text-center">
+                    <h4>Información de cuenta a transferir</h4>
+                    <hr class="mt-2 mb-2">
+                </div>
+               <div class="row">
+                    <div class="col-md-6">
+                        <p>Número de cuenta</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><small> {{ transfer?.account.number }}</small></p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-blue-d waves-effect" routerLink="/panel">Ir a inicio</button>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>

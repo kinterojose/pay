@@ -1,0 +1,101 @@
+<form  [formGroup]="form" (ngSubmit)="save()">
+  <div class="row">
+    <div class="offset-md-4 col-md-4">
+        <div class="card">
+            <div class="card-block">
+
+                <div class="text-center">
+                    <h4>{{ title }}</h4>
+                    <hr class="mt-2 mb-2">
+                </div>
+
+                <div class="md-form">
+                    <i class="fa fa-bank prefix"></i>
+                    <input type="text" id="name" class="form-control" type="text"
+                           [(ngModel)]="bank.name" formControlName="name"
+                           [class.invalid]="form.controls['name'].touched && !form.controls['name'].valid"
+                           [class.valid]="form.controls['name'].valid">
+                    <label for="name" [class.active]="bank.name">Nombre</label>
+
+                    <div *ngIf="form.controls['name'].dirty && !form.controls['name'].valid">
+                       <p class="red-text" *ngIf="form.controls['name'].errors.required">
+                          Este campo es requerido
+                       </p>
+
+                       <p class="red-text" *ngIf="form.controls['name'].errors.minlength">
+                          El nombre debe tener al menos 3 caracteres.
+                       </p>
+
+                       <p class="red-text" *ngIf="form.controls['name'].errors.maxlength">
+                          El nombre no puede exceder 30 caracteres.
+                       </p>
+                    </div>
+                </div>
+
+                <div class="md-form">
+                    <i class="fa fa-percent prefix"></i>
+                    <input type="text" id="comission_percent" class="form-control" type="number" max="100" min="0" 
+                           [(ngModel)]="bank.comission_percent" formControlName="comission_percent"
+                           [class.invalid]="form.controls['comission_percent'].touched && !form.controls['comission_percent'].valid"
+                           [class.valid]="form.controls['comission_percent'].valid">
+                    <label for="comission_percent" [class.active]="bank.comission_percent">Porcentaje de comisión</label>
+
+                    <div *ngIf="form.controls['comission_percent'].dirty && !form.controls['comission_percent'].valid">
+                       <p class="red-text" *ngIf="form.controls['comission_percent'].errors.required">
+                          Este campo es requerido
+                       </p>
+
+                       <p class="red-text" *ngIf="form.controls['comission_percent'].errors.maxlength">
+                          El nombre no puede exceder 3 caracteres.
+                       </p>
+                    </div>
+                </div>
+
+                <div class="md-form">
+                    <i class="fa fa-balance-scale prefix"></i>
+                    <input type="text" id="comission" class="form-control" type="number" max="100" min="0" 
+                           [(ngModel)]="bank.comission" formControlName="comission"
+                           [class.invalid]="form.controls['comission'].touched && !form.controls['comission'].valid"
+                           [class.valid]="form.controls['comission'].valid">
+                    <label for="comission" [class.active]="bank.comission">Comisión</label>
+
+                    <div *ngIf="form.controls['comission'].dirty && !form.controls['comission'].valid">
+                       <p class="red-text" *ngIf="form.controls['comission'].errors.required">
+                          Este campo es requerido
+                       </p>
+
+                       <p class="red-text" *ngIf="form.controls['comission'].errors.maxlength">
+                          El nombre no puede exceder 3 caracteres.
+                       </p>
+                    </div>
+                </div>
+
+                <div class="md-form" *ngIf="button != 'Editar'">
+                    <i class="fa fa-file prefix"></i>
+                    <input *ngIf="showFileNameInput" id="image" formControlName="image" class="upload-file form-control" placeholder="Eliga la imagen" [(ngModel)]="currency.image" disabled="disabled"/>
+                    <div class="fileUpload btn"
+                           [class.btn-blue-d]="!fileError"
+                           [class.btn-danger]="fileError">
+
+                        <span>Eliga la imagen</span>
+                        <input type="file" class="upload" accept="image/*" (change)="handleFileSelect($event)">
+                    </div>
+
+                    <div *ngIf="fileError">
+                       <p class="red-text">
+                          {{fileErrorMessage}}
+                       </p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-blue-d waves-effect" type="submit" [disabled]="fileError || !form.valid">{{button}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 text-center" *ngIf="button != 'Editar'">
+        <h4>Vista previa de la imagen</h4>
+        <img *ngIf="imagePrevisual" [src]="domSanitizer.bypassSecurityTrustUrl(imagePrevisual)" class="rounded img-fluid" />
+    </div>
+  </div>
+</form>

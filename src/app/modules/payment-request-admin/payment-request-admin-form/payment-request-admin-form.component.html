@@ -1,0 +1,63 @@
+<form  [formGroup]="form" (ngSubmit)="save()">
+  <div class="row">
+    <div class="offset-md-4 col-md-4">
+        <div class="card">
+            <div class="card-block">
+
+                <div class="text-center">
+                    <h4>{{ title }}</h4>
+                    <hr class="mt-2 mb-2">
+                </div>
+
+                <div class="md-form">
+                    <i class="fa fa-flag prefix"></i>
+                    <input type="text" id="name" class="form-control" type="text"
+                           [(ngModel)]="currency.name" formControlName="name"
+                           [class.invalid]="form.controls['name'].touched && !form.controls['name'].valid"
+                           [class.valid]="form.controls['name'].valid">
+                    <label for="name" [class.active]="currency.name">Nombre</label>
+
+                    <div *ngIf="form.controls['name'].dirty && !form.controls['name'].valid">
+                       <p class="red-text" *ngIf="form.controls['name'].errors.required">
+                          Este campo es requerido
+                       </p>
+
+                       <p class="red-text" *ngIf="form.controls['name'].errors.minlength">
+                          El nombre debe tener al menos 4 caracteres.
+                       </p>
+
+                       <p class="red-text" *ngIf="form.controls['name'].errors.maxlength">
+                          El nombre no puede exceder 20 caracteres.
+                       </p>
+                    </div>
+                </div>
+
+                <div class="md-form" *ngIf="button != 'Editar'">
+                    <i class="fa fa-file prefix"></i>
+                    <input *ngIf="showFileNameInput" id="image" formControlName="image" class="upload-file form-control" placeholder="Eliga la imagen" [(ngModel)]="currency.image" disabled="disabled"/>
+                    <div class="fileUpload btn"
+                           [class.btn-blue-d]="!fileError"
+                           [class.btn-danger]="fileError">
+
+                        <span>Eliga la imagen</span>
+                        <input type="file" class="upload" accept="image/*" (change)="handleFileSelect($event)">
+                    </div>
+
+                    <div *ngIf="fileError">
+                       <p class="red-text">
+                          {{fileErrorMessage}}
+                       </p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-blue-d waves-effect" type="submit" [disabled]="fileError || !form.valid">{{button}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1 text-center" *ngIf="button != 'Editar'">
+        <h4>Vista previa de la imagen</h4>
+        <img *ngIf="imagePrevisual" [src]="domSanitizer.bypassSecurityTrustUrl(imagePrevisual)" class="rounded img-fluid" />
+    </div>
+  </div>
+</form>

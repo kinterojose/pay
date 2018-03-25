@@ -1,0 +1,10 @@
+.label {
+    color: #3E4551 !important;    
+    position: absolute;
+    top: .8rem;
+    left: 0;
+    font-size: 1rem;
+    cursor: text;
+    transition: .2s ease-out;
+    margin-left: 15px;
+}

@@ -1,0 +1,9 @@
+{
+    "API": {},
+    "CURRENCY_TYPE": {
+        "FIAT": 1,
+        "CRYPTO": 2,
+        "BOTH": 3
+    },
+    "hTTP": {}
+}

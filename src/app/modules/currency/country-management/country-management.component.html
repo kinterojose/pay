@@ -1,0 +1,101 @@
+    <!-- Body sections-->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-block">
+                        <strong class="blue-grey-text main-title mx-3 text-lg-card">Dollar</strong>
+<!--                        <a [routerLink]="['/admin/currency/1/country/add']" class="btn btn-blue-d mx-3"><i class="fa fa-plus-circle fa-4x"></i></a> -->
+                        <img src="{{imageDefault}}" class="img-card-50">
+                    </div>
+                </div>
+                <!--/.Card-->
+            </div>            
+
+            <div class="col-md-5 col-md-offset-3">
+                <div class="card">
+                    <div class="card-block">
+                        <strong class="blue-grey-text">Agregar Paises</strong>
+                        <ss-multiselect-dropdown [options]="myOptions" [texts]="myTexts" [settings]="mySettings" [(ngModel)]="country" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
+                        <a (click)="addCountry()" class="btn btn-blue-d"><i class="fa fa-plus-circle fa-4x"></i></a>
+                    </div>
+                </div>
+                <!--/.Card-->
+            </div>            
+        </div>
+
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-history">
+                        <strong>Moneda en los siguientes paises</strong>
+                    </div>
+                    <!--Card content-->
+                    <div class="card-block">
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Paises</th>
+                              <th>Eliminar</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <th scope="row">1</th>
+                              <td>Brasil</td>
+                              <td><a (click)="deleteCountry(1)" class="btn btn-blue-d"><i class="fa fa-window-close fa-lg"></i></a></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">2</th>
+                              <td>Chile</td>
+                              <td><a (click)="deleteCountry(1)" class="btn btn-blue-d"><i class="fa fa-window-close fa-lg"></i></a></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">3</th>
+                              <td>Colombia</td>
+                              <td><a (click)="deleteCountry(1)" class="btn btn-blue-d"><i class="fa fa-window-close fa-lg"></i></a></td>
+                            </tr>
+                            <tr>
+                              <th scope="row">4</th>
+                              <td>Guatemala</td>
+                              <td><a (click)="deleteCountry(1)" class="btn btn-blue-d"><i class="fa fa-window-close fa-lg"></i></a></td>
+                            </tr>
+                          </tbody>
+                        </table>            
+                    </div>
+          <div class="card-footer">
+            <!--Pagination blue-->
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <!--Arrow left-->
+                    <li class="page-item">
+                        <a class="page-link" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                    </li>
+
+                    <!--Numbers-->
+                    <li class="page-item active"><a class="page-link">1</a></li>
+                    <li class="page-item"><a class="page-link">2</a></li>
+                    <li class="page-item"><a class="page-link">3</a></li>
+                    <li class="page-item"><a class="page-link">4</a></li>
+                    <li class="page-item"><a class="page-link">5</a></li>
+
+                    <!--Arrow right-->
+                    <li class="page-item">
+                        <a class="page-link" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!--/Pagination blue-->
+          </div>
+                </div>
+            </div>
+        </div>
+    </div>

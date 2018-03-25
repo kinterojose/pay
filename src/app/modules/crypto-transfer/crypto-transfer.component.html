@@ -1,0 +1,58 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="jumbotron">
+        	<div class="row">
+        		<div class="col-md-6 offset-md-3">
+        			<h5>Seleccione desde que monedero quieres recibir tus fondos</h5>
+        		</div>
+        	</div>
+			<div class="row justify-content-md-center">
+				<div class="col-md-3 text-center">
+					<div class="btn-group">
+					    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ buttonText }}</button>
+
+					    <div class="dropdown-menu">
+					   		<a *ngFor="let crypto of cryptoCurrencies" class="dropdown-item" 
+					        	id="{{ crypto.id }}" (click)="cryptoChange( $event )">
+					        	<img src="{{ crypto.image }}"> {{ crypto.name }}
+					        </a>
+					    </div>
+					</div>
+				</div>
+			</div>	
+			<h6>Copia y pega esta dirección (o escanea el código QR) en el sitio en el que actualmente</h6>
+			<h6>tienes tus criptomonedas para transferirlos a tu monedero Ubblet</h6>
+			<div class="row justify-content-md-center" *ngIf="cryptoCurrency">
+				<div class="col-md-6 text-center">
+					<h4 class="weight-500">URL: {{ cryptoCurrency.url }}</h4>
+				</div>
+			</div>
+			<div class="row justify-content-md-center" *ngIf="cryptoCurrency">
+				<div class="col-md-6 text-center">
+					<img src="{{ cryptoCurrency.qr }}">
+				</div>
+			</div>
+			<div class="row justify-content-md-center">
+				<div class="col-md-6 text-center">
+					<div class="md-form">
+	                    <label for="amount">Monto</label>
+	                    <input type="number" id="amount" class="form-control" type="text"
+	                           [(ngModel)]="amount" formControlName="amount"
+	                           [class.invalid]="form.controls['amount'].touched && !form.controls['amount'].valid"
+	                           [class.valid]="form.controls['amount'].valid">
+                	</div>
+				</div>
+			</div>
+			<div class="row justify-content-md-center">
+				<div class="col-md-6 text-center">
+					<div class="text-center">
+		                <button class="btn btn-blue-d waves-effect" type="submit">Añadir</button>
+		            </div>	
+				</div>
+			</div>
+			
+        </div>
+    </div>
+</div>
+</form>

@@ -1,0 +1,61 @@
+<form [formGroup]="form" (ngSubmit)="save()" id="payment-form" class="">
+	<div class="row">
+		<div class="offset-md-3 col-md-6">
+			<!--Form without header-->
+			<div>
+				<!--Header-->
+				<!--
+							<div class="text-center justify-content-center">
+								<img src="../../assets/img/default/default-profile.png" class="rounded mx-auto d-block profile-image grey-text" alt="Profile Image">
+							</div>
+						-->
+				<div class="md-form">
+					<div class="offset-md-1 col-md-10">
+						<input type="text" id="email" class="validate form-control" [(ngModel)]="paymentRequest.email" formControlName="email">
+						<label for="email" class="active">Correo Electronico</label>
+					</div>
+				</div>
+				<!--Body-->
+				<div class="row">
+					<div class="offset-md-1 col-md-2">
+						<label for="amount" class="active label">Monto</label>
+					</div>
+					<div class="col-md-6">
+						<div class="md-form">
+							<input type="number" id="amount" class="validate form-control" [(ngModel)]="paymentRequest.amount" formControlName="amount"
+							 placeholder="00,00" (change)="total_amount()">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="offset-md-1 col-md-2">
+						<label for="amount" class="active label">Monto Final</label>
+					</div>
+					<div class="col-md-6">
+						<div class="md-form">
+							<input type="number" [readonly]="true" id="totalAmount" class="form-control" [(ngModel)]="totalAmount" formControlName="totalAmount"
+							 placeholder="00,00">
+						</div>
+					</div>
+				</div>
+				<div class="md-form">
+					<div class="offset-md-1 col-md-10">
+						<input type="text" id="description" class="validate form-control" [(ngModel)]="paymentRequest.description" formControlName="description">
+						<label for="description">Descripción</label>
+					</div>
+				</div>
+				<br><br>
+				<div class="row justify-content-md-center">
+					<button class="btn btn-unique btn-primary mrg-right-5 <!--btn-blue-d--> waves-effect btn-md" type="button" data-toggle="modal" data-target="#exampleModal" (click)="confirmation()">Continuar</button>
+					<button class="btn btn-unique btn-default mrg-left-5 waves-effect btn-md" type="submit">Cancelar</button>
+				</div>
+				<div class="text-center mrg-top-30">
+					<p class="grey-text"><strong>Para obtener más informacion, consulte nuestras <a href="#" class="blue-grey-text">Condiciones de Uso</a> </strong></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<payment-request-confirm-modal [paymentRequest]="paymentRequest" [name_wallet]="name_wallet"></payment-request-confirm-modal>
+</form>
+<br>
+<router-outlet></router-outlet>
